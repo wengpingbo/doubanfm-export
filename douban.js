@@ -1,4 +1,4 @@
-﻿/*
+/*
 used to get HTML code(music information) from douban.com, and send message to background.html
 
 Copyright (C) 2014  Wen Qi <qiwen@qiwen.name>
@@ -64,9 +64,9 @@ function getContentAndPost() {
     info.startFrom = new Number(startFromStr[0]);
     
     var target = liked_or_banned?"nav_liked":"nav_banned";
-    var totalStr = document.getElementById(target).innerText.match(/[0-9]+/);
+    var totalStr = document.getElementsByClassName("total").item(0).innerText.trim();
     if (totalStr && totalStr.length) {
-        info.total = new Number(totalStr[0]);
+        info.total = new Number(totalStr.substring(1, totalStr.length - 1));
     } else {
         alert("unexpected");
         return;
